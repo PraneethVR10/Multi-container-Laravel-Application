@@ -7,7 +7,12 @@ services:
       - '8000:80'
     volumes: 
       - ./nginx/nginx.conf:/etc/mginx.conf:ro
-  #php:
+  php: 
+    build:
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+    volumes:
+      - ./src:/var/www/html:delegated 
   #mysql:
   #composer:
   #artisan:
